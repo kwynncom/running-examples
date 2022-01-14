@@ -14,4 +14,3 @@ echo I am running as `whoami`
 echo I am a member of these groups `groups`
 cd $NU_CLONE_LOC
 python3 ./checker.py $OPTS run
-
