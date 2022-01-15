@@ -1,0 +1,7 @@
+# given the Proxy 9999 to Nu on 8888
+# if you put this within your website in an empty directory, and call it .htaccess
+# or set Apache to look at other names, going to the URL representing this 
+# directory will rewrite you to Nu
+# 2 lines:
+RewriteEngine On
+RewriteRule ^ https://%{HTTP_HOST}:9999/?%{QUERY_STRING} [L,NE]
