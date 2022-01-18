@@ -4,6 +4,7 @@
 
 THISV="v final script - 2022-01-14 00:59"
 export JAVA_HOME=/usr
+# directory where you have cloned the above:
 NU_CLONE_LOC=/opt/nu
 # note that the following is being ignored at the moment, despite messages about doing it
 OPTS="--bind-address=127.0.0.1"
