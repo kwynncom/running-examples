@@ -1,0 +1,15 @@
+[Unit]
+Description=Nu HTML validator
+
+[Service]
+User=nobody
+Group=nogroup
+ExecStart=/opt/misc/runnu.sh
+
+[Install]
+WantedBy=local-fs.target
+
+# 2022/01/18 01:51 UTC -5 - working / hard link
+
+
+
