@@ -24,3 +24,10 @@ This is one of the relevant pages:
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 Again, I didn't have to do that much work.
+****
+2022/01/24 19:17 - I just added the .conf files with the Alias to the large files to GitHub, in this repo's run_kwynn_com folder
+And added the live code change itself:
+https://github.com/kwynncom/web-server-access-log-analysis/tree/da5cb0de4b082cc0516442088152eac1ce3d7d10/agents_sa_live_2106
+Running live at
+https://kwynn.com/t/21/06/ua/
+

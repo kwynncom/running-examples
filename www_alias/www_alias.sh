@@ -24,3 +24,42 @@ grep -R kwynn_com_ua
 # . is a special character in regex, so escape it:
 grep -RP user_agents\.json
 grep -R kwynn_com_ua
+# my local machine, starting to sync code changes
+cd /opt/kwynn
+git diff
+git add -A .
+git commit -m "js inht()"
+git push
+# syncing to live web, first the dry runs
+# the grep shows what files will change
+rsync --dry-run --delete -aL4zvv --itemize-changes -e "ssh -i /.../t3a-...-.pem" /local_www ubuntu@kwynn.com:/remote_www/ | grep -P "\.\."
+# files that will be added
+rsync --dry-run --delete -aL4zvv --itemize-changes -e "ssh -i /.../t3a-...-.pem" /local_www ubuntu@kwynn.com:/remote_www/ | grep -P "\+\+"
+# will be deleted
+rsync --dry-run --delete -aL4zvv --itemize-changes -e "ssh -i /.../t3a-...-.pem" /local_www ubuntu@kwynn.com:/remote_www/ | grep -i del
+# this is not a drill / dry run
+rsync           --delete -aL4zvv --itemize-changes -e "ssh -i /.../t3a-...-.pem" /local_www ubuntu@kwynn.com:/remote_www/ 
+# remove the unneeded files so that the code looks like as shown in this folder's README
+# modify the apache config files as shown in /apache2/run_local
+# then restart / reload apache
+sudo systemctl reload apache2
+# hard link files from my local web copy to my web logs repo, as mentioned in README
+# REMOTE / LIVE KWYNN.com:
+# create the links and permissions similar to above in /var/large_www
+# go mod apache
+cd /etc/apache2
+cd sites-av*
+sudo nano common10.conf
+# checks syntax of config files
+sudo apachectl configtest
+# a graceful restart means wait for all connections to close / all users to pause momentarily
+sudo apachectl graceful
+# for reasons I'm not sure of, I have to do this again:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github_2021_08_1_kwynn_com
+ssh -T git@github.com
+git fetch
+git diff origin
+git status
+# sync the /opt/kwynn/js/utils.js change
+git pull
