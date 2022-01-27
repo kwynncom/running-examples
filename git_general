@@ -1,0 +1,7 @@
+# create a branch, send it to the origin / github, then restore local to the master / main
+git branch debug_2022_0126
+git checkout debug_2022_0126
+git add -A .
+git commit -m "unstable debugging branch"
+git push --set-upstream origin debug_2022_0126
+git checkout master
