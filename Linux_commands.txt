@@ -1,0 +1,6 @@
+# you may need to use IP address if your security group / firewall is set to 32 bit / IPv4
+# I have not looked for the equivalent of ssh -4
+sudo sshfs -o uid=1000,umask=227,allow_other,reconnect,IdentityFile=/yourpath/aws-ec2-t3a-1-2021.pem ubuntu@34.193.238.16:/var/log/apache2 /var/kwynn/mntlog
+# /etc/fstab entry
+ubuntu@34.193.238.16:/var/log/apache2 /var/kwynn/mntlog fuse.sshfs x-systemd.automount,_netdev,uid=1000,umask=227,allow_other,reconnect,IdentityFile=/yourpath/aws-ec2-t3a-1-2021.pem 0 0
+sudo mount -av
