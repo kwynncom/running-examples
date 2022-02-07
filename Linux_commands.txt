@@ -1,6 +1,11 @@
-# you may need to use IP address if your security group / firewall is set to 32 bit / IPv4
-# I have not looked for the equivalent of ssh -4
-sudo sshfs -o uid=1000,umask=227,allow_other,reconnect,IdentityFile=/yourpath/aws-ec2-t3a-1-2021.pem ubuntu@34.193.238.16:/var/log/apache2 /var/kwynn/mntlog
+# sshfs - remote mount ****************
+# inet is IPv4 or -4; you may need this if your firewall / security group is set up as such
+# if you leave it as any, it may take 1 - 2 minutes to connect
+sudo sshfs -o uid=1000,umask=227,allow_other,reconnect,IdentityFile=/var/kwynn/aws2020.pem,AddressFamily=inet ubuntu@kwynn.com:/var/log/apache2 /var/kwynn/mntlog
 # /etc/fstab entry
-ubuntu@34.193.238.16:/var/log/apache2 /var/kwynn/mntlog fuse.sshfs x-systemd.automount,_netdev,uid=1000,umask=227,allow_other,reconnect,IdentityFile=/yourpath/aws-ec2-t3a-1-2021.pem 0 0
+ubuntu@kwynn.com:/var/log/apache2 /var/kwynn/mntlog fuse.sshfs x-systemd.automount,_netdev,uid=1000,umask=227,allow_other,reconnect,IdentityFile=/var/kwynn/aws2020.pem,AddressFamily=inet 0 0
 sudo mount -av
+
+# debugging, both sshfs and ssh
+sudo sshfs -o debug,uid=1000,umask=227,allow_other,reconnect,IdentityFile=/var/kwynn/aws2020.pem,AddressFamily=inet,LogLevel=DEBUG3 ubuntu@kwynn.com:/var/log/apache2 /var/kwynn/mntlog
+# *******************************
