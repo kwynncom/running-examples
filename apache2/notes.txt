@@ -1,0 +1,17 @@
+check for local test server name
+check for local user / home directory
+
+let's encrypt below
+/opt/nu$ git config --get remote.origin.url
+https://github.com/validator/validator
+
+
+don't forget to turn port 80 on for renewal or new cert
+renew on old
+then grab all of /etc/letsencrypt 
+
+# server name
+Define Gsn 
+
+# document root
+Define Gdr  
