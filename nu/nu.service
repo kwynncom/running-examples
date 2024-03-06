@@ -2,12 +2,13 @@
 Description=Nu HTML validator
 
 [Service]
-User=nobody
-Group=nogroup
+DynamicUser=yes
 ExecStart=/opt/misc/runnu.sh
 
 [Install]
 WantedBy=local-fs.target
+
+# 2024/03/06 01:42 - new computer
 
 # 2022/01/18 01:51 UTC -5 - working / hard link
 

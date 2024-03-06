@@ -11,7 +11,7 @@ sudo systemctl daemon-reload
 sudo systemctl start nu
 sudo systemctl status nu
 # might take 5 - 10 seconds before it responds to HTTP
-# confirm running as nobody,nogroup
-ps -Ao start,user,group,command | grep checker\.py | grep nogroup | grep nobody
+# confirm running
+ps -Ao start,user,group,command | grep checker\.py
 # start on reboot
 sudo systemctl enable nu

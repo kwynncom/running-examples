@@ -1,3 +1,5 @@
+# needs Apache mods proxy and proxy_http
+# 2024/03/06 02:56
 # local dev working version 2024/03/04 22:44
 
 # begin included file
