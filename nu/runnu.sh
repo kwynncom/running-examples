@@ -1,20 +1,16 @@
 #! /usr/bin/bash
 # runs https://github.com/validator/validator, which is the HTML validator Nu Checker
-# config lines:
-
-THISV="v 2024-0307-2"
-export JAVA_HOME=/usr
-# export ANT_HOME=/opt/ant/apache-ant-1.9.16
-# export PATH=$PATH:${ANT_HOME}/bin
-# directory where you have cloned the above:
+# directory where you have cloned the just-mentioned validator repo:
 NU_CLONE_LOC=/opt/nu
-# note that the following is being ignored at the moment, despite messages about doing it
+
+THISV="v-2024-0308-0005-2"
+
+export JAVA_HOME=/usr
+
+# The bind-address option gets contradictory results when the validator starts.  First it says it's binding to 10.1.x.y then it 
+# binds to 127....   It works, in any event.
 OPTS="--bind-address=127.0.0.1"
 
-# note that the bind address option is being ignored
 echo $THISV
-echo I am running as `whoami`
-echo I am a member of these groups `groups`
 cd $NU_CLONE_LOC
 nice -n 40 python3 ./checker.py $OPTS run
-
