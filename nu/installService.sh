@@ -4,7 +4,7 @@
 # there is no need for root / sudo if not shown just below
 ln ./runnu.sh /opt/misc/
 # next command not necessary if using service, but might as well have it on hand.
-ln ./runNuAsNobody.sh /opt/misc/
+ln ./runnu.sh /opt/misc/
 sudo ln ./nu.service /etc/systemd/system/
 # if you change the file of the service above
 sudo systemctl daemon-reload

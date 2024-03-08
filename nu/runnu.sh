@@ -2,7 +2,7 @@
 # runs https://github.com/validator/validator, which is the HTML validator Nu Checker
 # config lines:
 
-THISV="v 2024-0307-1"
+THISV="v 2024-0307-2"
 export JAVA_HOME=/usr
 # export ANT_HOME=/opt/ant/apache-ant-1.9.16
 # export PATH=$PATH:${ANT_HOME}/bin
